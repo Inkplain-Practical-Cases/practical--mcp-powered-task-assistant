@@ -1,0 +1,57 @@
+{
+  "practical_case": {
+    "id": "H2WFXiEE5dTs80Kv8jWa",
+    "slug": "mcp-powered-task-assistant",
+    "name": "MCP-Powered Task Assistant"
+  },
+  "current": "inkp",
+  "stages": {
+    "intro": {
+      "status": "done",
+      "summary": "Gate 1 approved. Created MCP-Powered Task Assistant (2/6) for Forward Deployed Engineering; attached six verified beginner-level profile skills. Wrote and read back seven full Introduction sections covering business scenario, architecture, skills, six-step learning route and completion tests. Repository, .inkp and Portal Content stages were not started; waiting for explicit user instruction to proceed.",
+      "started_at": "2026-10-09T17:57:42.683Z",
+      "finished_at": "2026-10-09T17:58:39.098Z",
+      "updated_by": "api-key:for-chatgpt-test-2",
+      "outputs": {
+        "portal_url": "/practical-case/mcp-powered-task-assistant",
+        "profile": "forward-deployed-engineering",
+        "skills": [
+          "designing-mcp-server-architecture",
+          "designing-mcp-client-architecture",
+          "developing-mcp-tools",
+          "implementing-tool-discovery",
+          "configuring-mcp-transport",
+          "implementing-tool-invocation"
+        ],
+        "intro_sections": 7,
+        "case_id": "H2WFXiEE5dTs80Kv8jWa",
+        "planned_repo_org": "Inkplain-Practical-Cases",
+        "repository_created": false
+      }
+    },
+    "repo": {
+      "status": "done",
+      "summary": "Gate 2 completed. Created Inkplain-Practical-Cases/practical--mcp-powered-task-assistant with six cumulative Python MCP SDK branches, per-branch STEP-N.crd, STEP-N.md, pytest, main FINAL.crd and README, and 7-branch GitHub Actions CI matrix. User-provided GitHub Actions screenshot confirms overall workflow Success for commit e65b316 (24 seconds); individual job logs not separately examined. Stage 3 not started.",
+      "outputs": {
+        "repository_created": false,
+        "planned_organization": "Inkplain-Practical-Cases",
+        "planned_repository": "practical--mcp-powered-task-assistant",
+        "planned_steps": 6,
+        "gate2_approved": false,
+        "repo_url": "https://github.com/Inkplain-Practical-Cases/practical--mcp-powered-task-assistant",
+        "steps": 6,
+        "ci_workflow_url": "https://github.com/Inkplain-Practical-Cases/practical--mcp-powered-task-assistant/actions/workflows/tests.yml",
+        "ci_overall_status": "success (user GitHub screenshot)",
+        "ci_commit": "e65b316",
+        "ci_configured_branches": 7,
+        "ci_individual_logs_inspected": false,
+        "source_verified": true,
+        "inkp_pending": true
+      },
+      "started_at": "2026-10-09T18:00:18.198Z",
+      "finished_at": "2026-10-09T18:22:04.374Z",
+      "updated_by": "api-key:for-chatgpt-test-2"
+    }
+  },
+  "updated_at": "2026-10-09T18:22:04.374Z"
+}
