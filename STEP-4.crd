@@ -5,7 +5,7 @@
   "generated_at": "2026-10-09T18:06:00Z",
   "source": {
     "repo": "github.com/Inkplain-Practical-Cases/practical--mcp-powered-task-assistant",
-    "revision": "step-03-build-mcp-client-and-discover-tools",
+    "revision": "step-04-invoke-tools-and-validate-results",
     "roots": {
       "backend": "app"
     },
@@ -14,11 +14,11 @@
     ]
   },
   "step": {
-    "no": 3,
+    "no": 4,
     "of": 6,
-    "title": "Build MCP client and discover tools",
-    "branch": "step-03-build-mcp-client-and-discover-tools",
-    "previous": "STEP-2.crd",
+    "title": "Invoke tools and validate results",
+    "branch": "step-04-invoke-tools-and-validate-results",
+    "previous": "STEP-3.crd",
     "removed": []
   },
   "flows": [
@@ -45,6 +45,12 @@
       "name": "Discover MCP tools",
       "description": "Open stdio session and list dynamically registered tool schemas.",
       "entry": "be.discovery_main"
+    },
+    {
+      "id": "invocation",
+      "name": "MCP tool invocation",
+      "description": "Perform discovery, input validation, and tool execution.",
+      "entry": "be.invoke_main"
     }
   ],
   "components": [
@@ -61,7 +67,7 @@
       "source": {
         "file": "app/main.py",
         "symbol": "main",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           11
@@ -103,7 +109,7 @@
       "source": {
         "file": "app/server.py",
         "symbol": "server",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           9
@@ -165,7 +171,7 @@
       "source": {
         "file": "app/features/feature_status/tools/server_status.py",
         "symbol": "server_status",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           8
@@ -207,7 +213,7 @@
       "source": {
         "file": "app/features/feature_status/services/service_read_status.py",
         "symbol": "service_read_status",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           6
@@ -239,7 +245,7 @@
       "source": {
         "file": "app/core/dependencies.py",
         "symbol": "get_task_store",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           16
@@ -282,7 +288,7 @@
       "source": {
         "file": "app/core/dependencies.py",
         "symbol": "get_calendar_provider",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           16
@@ -325,7 +331,7 @@
       "source": {
         "file": "app/features/feature_tasks/tools/create_task.py",
         "symbol": "create_task",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           9
@@ -368,7 +374,7 @@
       "source": {
         "file": "app/features/feature_tasks/services/service_create_task.py",
         "symbol": "service_create_task",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           9
@@ -421,7 +427,7 @@
       "source": {
         "file": "app/features/feature_tasks/schemas/task_schema.py",
         "symbol": "TaskCreate",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           17
@@ -453,7 +459,7 @@
       "source": {
         "file": "app/providers/tasks/in_memory_task_store.py",
         "symbol": "InMemoryTaskStore",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           17
@@ -485,7 +491,7 @@
       "source": {
         "file": "app/features/feature_calendar/tools/list_calendar_events.py",
         "symbol": "list_calendar_events",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           8
@@ -528,7 +534,7 @@
       "source": {
         "file": "app/features/feature_calendar/services/service_list_calendar_events.py",
         "symbol": "service_list_calendar_events",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           8
@@ -571,7 +577,7 @@
       "source": {
         "file": "app/providers/calendar/fake_calendar_provider.py",
         "symbol": "FakeCalendarProvider",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           13
@@ -602,7 +608,7 @@
       "source": {
         "file": "app/client/mcp_gateway.py",
         "symbol": "MCPGateway",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           22
@@ -611,7 +617,7 @@
       "owner": "feature_discovery",
       "component_reason": "Opens and owns a real MCP stdio ClientSession and closes it reliably.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [],
@@ -633,7 +639,7 @@
       "source": {
         "file": "app/features/feature_discovery/services/service_discover_tools.py",
         "symbol": "service_discover_tools",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           9
@@ -642,7 +648,7 @@
       "owner": "feature_discovery",
       "component_reason": "Calls MCP tools/list to obtain live tool definitions and argument schemas.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -675,7 +681,7 @@
       "source": {
         "file": "app/client/discover_cli.py",
         "symbol": "main",
-        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "revision": "step-04-invoke-tools-and-validate-results",
         "lines": [
           1,
           16
@@ -684,7 +690,7 @@
       "owner": "feature_discovery",
       "component_reason": "Prints discovered MCP tools and their input schemas as JSON.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -702,6 +708,182 @@
       "outputs": [],
       "attributes": {
         "step_note": "Added in Step 3."
+      }
+    },
+    {
+      "id": "be.service_validate_arguments",
+      "name": "service_validate_arguments",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Checks chosen tool name and arguments against live discovered JSON schema.",
+      "flows": [
+        "invocation"
+      ],
+      "source": {
+        "file": "app/features/feature_invocation/services/service_validate_arguments.py",
+        "symbol": "service_validate_arguments",
+        "revision": "step-04-invoke-tools-and-validate-results",
+        "lines": [
+          1,
+          15
+        ]
+      },
+      "owner": "feature_invocation",
+      "component_reason": "Checks chosen tool name and arguments against live discovered JSON schema.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 4."
+      }
+    },
+    {
+      "id": "be.service_parse_tool_result",
+      "name": "service_parse_tool_result",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Rejects MCP isError responses and parses structured or text tool data.",
+      "flows": [
+        "invocation"
+      ],
+      "source": {
+        "file": "app/features/feature_invocation/services/service_parse_tool_result.py",
+        "symbol": "service_parse_tool_result",
+        "revision": "step-04-invoke-tools-and-validate-results",
+        "lines": [
+          1,
+          19
+        ]
+      },
+      "owner": "feature_invocation",
+      "component_reason": "Rejects MCP isError responses and parses structured or text tool data.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 4."
+      }
+    },
+    {
+      "id": "be.service_invoke_tool",
+      "name": "service_invoke_tool",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Lists tools, validates arguments, invokes selected MCP tool and parses the result.",
+      "flows": [
+        "invocation"
+      ],
+      "source": {
+        "file": "app/features/feature_invocation/services/service_invoke_tool.py",
+        "symbol": "service_invoke_tool",
+        "revision": "step-04-invoke-tools-and-validate-results",
+        "lines": [
+          1,
+          13
+        ]
+      },
+      "owner": "feature_invocation",
+      "component_reason": "Lists tools, validates arguments, invokes selected MCP tool and parses the result.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Invoke dependency",
+          "description": "Perform secure validation or MCP call.",
+          "calls": {
+            "component": "be.service_discover_tools",
+            "type": "call",
+            "label": "calls"
+          }
+        },
+        {
+          "id": "call-1",
+          "title": "Invoke dependency",
+          "description": "Perform secure validation or MCP call.",
+          "calls": {
+            "component": "be.service_validate_arguments",
+            "type": "call",
+            "label": "calls"
+          }
+        },
+        {
+          "id": "call-2",
+          "title": "Invoke dependency",
+          "description": "Perform secure validation or MCP call.",
+          "calls": {
+            "component": "be.service_parse_tool_result",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 4."
+      }
+    },
+    {
+      "id": "be.invoke_main",
+      "name": "main",
+      "kind": "function",
+      "side": "backend",
+      "layer": "door",
+      "description": "Shows validated task creation and calendar listing from a real MCP session.",
+      "flows": [
+        "invocation"
+      ],
+      "source": {
+        "file": "app/client/invoke_cli.py",
+        "symbol": "main",
+        "revision": "step-04-invoke-tools-and-validate-results",
+        "lines": [
+          1,
+          19
+        ]
+      },
+      "owner": "feature_invocation",
+      "component_reason": "Shows validated task creation and calendar listing from a real MCP session.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Invoke dependency",
+          "description": "Perform secure validation or MCP call.",
+          "calls": {
+            "component": "be.MCPGateway",
+            "type": "call",
+            "label": "calls"
+          }
+        },
+        {
+          "id": "call-1",
+          "title": "Invoke dependency",
+          "description": "Perform secure validation or MCP call.",
+          "calls": {
+            "component": "be.service_invoke_tool",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 4."
       }
     }
   ],
