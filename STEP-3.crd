@@ -5,7 +5,7 @@
   "generated_at": "2026-10-09T18:06:00Z",
   "source": {
     "repo": "github.com/Inkplain-Practical-Cases/practical--mcp-powered-task-assistant",
-    "revision": "step-02-define-task-and-calendar-tools",
+    "revision": "step-03-build-mcp-client-and-discover-tools",
     "roots": {
       "backend": "app"
     },
@@ -14,11 +14,11 @@
     ]
   },
   "step": {
-    "no": 2,
+    "no": 3,
     "of": 6,
-    "title": "Define task and calendar tools",
-    "branch": "step-02-define-task-and-calendar-tools",
-    "previous": "STEP-1.crd",
+    "title": "Build MCP client and discover tools",
+    "branch": "step-03-build-mcp-client-and-discover-tools",
+    "previous": "STEP-2.crd",
     "removed": []
   },
   "flows": [
@@ -39,6 +39,12 @@
       "name": "Upcoming calendar",
       "description": "MCP list_calendar_events lists mock events.",
       "entry": "be.list_calendar_events"
+    },
+    {
+      "id": "discovery",
+      "name": "Discover MCP tools",
+      "description": "Open stdio session and list dynamically registered tool schemas.",
+      "entry": "be.discovery_main"
     }
   ],
   "components": [
@@ -55,7 +61,7 @@
       "source": {
         "file": "app/main.py",
         "symbol": "main",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           11
@@ -97,7 +103,7 @@
       "source": {
         "file": "app/server.py",
         "symbol": "server",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           9
@@ -106,7 +112,7 @@
       "owner": "feature_status",
       "component_reason": "Registers only the approved public status tool.",
       "status": "observed",
-      "step_change": "changed",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -159,7 +165,7 @@
       "source": {
         "file": "app/features/feature_status/tools/server_status.py",
         "symbol": "server_status",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           8
@@ -201,7 +207,7 @@
       "source": {
         "file": "app/features/feature_status/services/service_read_status.py",
         "symbol": "service_read_status",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           6
@@ -233,7 +239,7 @@
       "source": {
         "file": "app/core/dependencies.py",
         "symbol": "get_task_store",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           16
@@ -242,7 +248,7 @@
       "owner": "feature_tasks",
       "component_reason": "Reuses a task store across calls in one MCP process.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -276,7 +282,7 @@
       "source": {
         "file": "app/core/dependencies.py",
         "symbol": "get_calendar_provider",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           16
@@ -285,7 +291,7 @@
       "owner": "feature_calendar",
       "component_reason": "Provides deterministic mock upcoming meetings.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -319,7 +325,7 @@
       "source": {
         "file": "app/features/feature_tasks/tools/create_task.py",
         "symbol": "create_task",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           9
@@ -328,7 +334,7 @@
       "owner": "feature_tasks",
       "component_reason": "Exposes a typed MCP task creation operation.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -362,7 +368,7 @@
       "source": {
         "file": "app/features/feature_tasks/services/service_create_task.py",
         "symbol": "service_create_task",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           9
@@ -371,7 +377,7 @@
       "owner": "feature_tasks",
       "component_reason": "Validates task fields and invokes the store.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -415,7 +421,7 @@
       "source": {
         "file": "app/features/feature_tasks/schemas/task_schema.py",
         "symbol": "TaskCreate",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           17
@@ -424,7 +430,7 @@
       "owner": "feature_tasks",
       "component_reason": "Rejects missing titles, past dates and unknown priority levels.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [],
@@ -447,7 +453,7 @@
       "source": {
         "file": "app/providers/tasks/in_memory_task_store.py",
         "symbol": "InMemoryTaskStore",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           17
@@ -456,7 +462,7 @@
       "owner": "feature_tasks",
       "component_reason": "Creates local task records with sequential IDs under a lock.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [],
@@ -479,7 +485,7 @@
       "source": {
         "file": "app/features/feature_calendar/tools/list_calendar_events.py",
         "symbol": "list_calendar_events",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           8
@@ -488,7 +494,7 @@
       "owner": "feature_calendar",
       "component_reason": "Exposes an MCP read-only calendar operation.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -522,7 +528,7 @@
       "source": {
         "file": "app/features/feature_calendar/services/service_list_calendar_events.py",
         "symbol": "service_list_calendar_events",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           8
@@ -531,7 +537,7 @@
       "owner": "feature_calendar",
       "component_reason": "Rejects unsupported list limits then reads the calendar provider.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -565,7 +571,7 @@
       "source": {
         "file": "app/providers/calendar/fake_calendar_provider.py",
         "symbol": "FakeCalendarProvider",
-        "revision": "step-02-define-task-and-calendar-tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
         "lines": [
           1,
           13
@@ -574,13 +580,128 @@
       "owner": "feature_calendar",
       "component_reason": "Returns upcoming demonstration meetings relative to today.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [],
       "outputs": [],
       "attributes": {
         "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.MCPGateway",
+      "name": "MCPGateway",
+      "kind": "class",
+      "side": "backend",
+      "layer": "provider",
+      "description": "Opens and owns a real MCP stdio ClientSession and closes it reliably.",
+      "flows": [
+        "discovery"
+      ],
+      "source": {
+        "file": "app/client/mcp_gateway.py",
+        "symbol": "MCPGateway",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "lines": [
+          1,
+          22
+        ]
+      },
+      "owner": "feature_discovery",
+      "component_reason": "Opens and owns a real MCP stdio ClientSession and closes it reliably.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 3."
+      }
+    },
+    {
+      "id": "be.service_discover_tools",
+      "name": "service_discover_tools",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Calls MCP tools/list to obtain live tool definitions and argument schemas.",
+      "flows": [
+        "discovery"
+      ],
+      "source": {
+        "file": "app/features/feature_discovery/services/service_discover_tools.py",
+        "symbol": "service_discover_tools",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "lines": [
+          1,
+          9
+        ]
+      },
+      "owner": "feature_discovery",
+      "component_reason": "Calls MCP tools/list to obtain live tool definitions and argument schemas.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Delegate",
+          "description": "Delegates to MCP discovery dependency.",
+          "calls": {
+            "component": "be.MCPGateway",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 3."
+      }
+    },
+    {
+      "id": "be.discovery_main",
+      "name": "main",
+      "kind": "function",
+      "side": "backend",
+      "layer": "door",
+      "description": "Prints discovered MCP tools and their input schemas as JSON.",
+      "flows": [
+        "discovery"
+      ],
+      "source": {
+        "file": "app/client/discover_cli.py",
+        "symbol": "main",
+        "revision": "step-03-build-mcp-client-and-discover-tools",
+        "lines": [
+          1,
+          16
+        ]
+      },
+      "owner": "feature_discovery",
+      "component_reason": "Prints discovered MCP tools and their input schemas as JSON.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "call-0",
+          "title": "Delegate",
+          "description": "Delegates to MCP discovery dependency.",
+          "calls": {
+            "component": "be.service_discover_tools",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 3."
       }
     }
   ],
