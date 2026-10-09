@@ -1,0 +1,589 @@
+{
+  "crd_version": 1,
+  "name": "MCP-Powered Task Assistant",
+  "description": "Cumulative component relations of real Python MCP server and tools.",
+  "generated_at": "2026-10-09T18:06:00Z",
+  "source": {
+    "repo": "github.com/Inkplain-Practical-Cases/practical--mcp-powered-task-assistant",
+    "revision": "step-02-define-task-and-calendar-tools",
+    "roots": {
+      "backend": "app"
+    },
+    "stacks": [
+      "python-mcp"
+    ]
+  },
+  "step": {
+    "no": 2,
+    "of": 6,
+    "title": "Define task and calendar tools",
+    "branch": "step-02-define-task-and-calendar-tools",
+    "previous": "STEP-1.crd",
+    "removed": []
+  },
+  "flows": [
+    {
+      "id": "server-status",
+      "name": "Server status",
+      "description": "MCP client discovers and calls server_status.",
+      "entry": "be.main"
+    },
+    {
+      "id": "task",
+      "name": "Create task",
+      "description": "MCP create_task validates and persists a local task.",
+      "entry": "be.create_task"
+    },
+    {
+      "id": "calendar",
+      "name": "Upcoming calendar",
+      "description": "MCP list_calendar_events lists mock events.",
+      "entry": "be.list_calendar_events"
+    }
+  ],
+  "components": [
+    {
+      "id": "be.main",
+      "name": "main",
+      "kind": "function",
+      "side": "backend",
+      "layer": "door",
+      "description": "Starts a local MCP server over stdio.",
+      "flows": [
+        "server-status"
+      ],
+      "source": {
+        "file": "app/main.py",
+        "symbol": "main",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          11
+        ]
+      },
+      "owner": "feature_status",
+      "component_reason": "Starts a local MCP server over stdio.",
+      "status": "observed",
+      "step_change": "unchanged",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "invoke-0",
+          "title": "Delegate",
+          "description": "Invoke the next step in this exact status flow.",
+          "calls": {
+            "component": "be.server",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 1."
+      }
+    },
+    {
+      "id": "be.server",
+      "name": "server",
+      "kind": "instance",
+      "side": "backend",
+      "layer": "door",
+      "description": "Registers only the approved public status tool.",
+      "flows": [
+        "server-status"
+      ],
+      "source": {
+        "file": "app/server.py",
+        "symbol": "server",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          9
+        ]
+      },
+      "owner": "feature_status",
+      "component_reason": "Registers only the approved public status tool.",
+      "status": "observed",
+      "step_change": "changed",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "invoke-0",
+          "title": "Delegate",
+          "description": "Invoke the next step in this exact status flow.",
+          "calls": {
+            "component": "be.server_status",
+            "type": "call",
+            "label": "calls"
+          }
+        },
+        {
+          "id": "task-registration",
+          "title": "Register task tool",
+          "description": "Registers a task tool.",
+          "calls": {
+            "component": "be.create_task",
+            "type": "call",
+            "label": "exposes"
+          }
+        },
+        {
+          "id": "calendar-registration",
+          "title": "Register calendar tool",
+          "description": "Registers upcoming event list.",
+          "calls": {
+            "component": "be.list_calendar_events",
+            "type": "call",
+            "label": "exposes"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Registers create_task and list_calendar_events as MCP tools."
+      }
+    },
+    {
+      "id": "be.server_status",
+      "name": "server_status",
+      "kind": "function",
+      "side": "backend",
+      "layer": "tool",
+      "description": "Exposes a typed asynchronous MCP tool that returns status.",
+      "flows": [
+        "server-status"
+      ],
+      "source": {
+        "file": "app/features/feature_status/tools/server_status.py",
+        "symbol": "server_status",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "feature_status",
+      "component_reason": "Exposes a typed asynchronous MCP tool that returns status.",
+      "status": "observed",
+      "step_change": "unchanged",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "invoke-0",
+          "title": "Delegate",
+          "description": "Invoke the next step in this exact status flow.",
+          "calls": {
+            "component": "be.service_read_status",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 1."
+      }
+    },
+    {
+      "id": "be.service_read_status",
+      "name": "service_read_status",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Returns the deterministic local service-status payload.",
+      "flows": [
+        "server-status"
+      ],
+      "source": {
+        "file": "app/features/feature_status/services/service_read_status.py",
+        "symbol": "service_read_status",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          6
+        ]
+      },
+      "owner": "feature_status",
+      "component_reason": "Returns the deterministic local service-status payload.",
+      "status": "observed",
+      "step_change": "unchanged",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 1."
+      }
+    },
+    {
+      "id": "be.get_task_store",
+      "name": "get_task_store",
+      "kind": "function",
+      "side": "backend",
+      "layer": "config",
+      "description": "Reuses a task store across calls in one MCP process.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/core/dependencies.py",
+        "symbol": "get_task_store",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          16
+        ]
+      },
+      "owner": "feature_tasks",
+      "component_reason": "Reuses a task store across calls in one MCP process.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "delegate-0",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.InMemoryTaskStore",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.get_calendar_provider",
+      "name": "get_calendar_provider",
+      "kind": "function",
+      "side": "backend",
+      "layer": "config",
+      "description": "Provides deterministic mock upcoming meetings.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/core/dependencies.py",
+        "symbol": "get_calendar_provider",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          16
+        ]
+      },
+      "owner": "feature_calendar",
+      "component_reason": "Provides deterministic mock upcoming meetings.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "delegate-0",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.FakeCalendarProvider",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.create_task",
+      "name": "create_task",
+      "kind": "function",
+      "side": "backend",
+      "layer": "tool",
+      "description": "Exposes a typed MCP task creation operation.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/features/feature_tasks/tools/create_task.py",
+        "symbol": "create_task",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          9
+        ]
+      },
+      "owner": "feature_tasks",
+      "component_reason": "Exposes a typed MCP task creation operation.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "delegate-0",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.service_create_task",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.service_create_task",
+      "name": "service_create_task",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Validates task fields and invokes the store.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/features/feature_tasks/services/service_create_task.py",
+        "symbol": "service_create_task",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          9
+        ]
+      },
+      "owner": "feature_tasks",
+      "component_reason": "Validates task fields and invokes the store.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "delegate-0",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.TaskCreate",
+            "type": "call",
+            "label": "calls"
+          }
+        },
+        {
+          "id": "delegate-1",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.InMemoryTaskStore",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.TaskCreate",
+      "name": "TaskCreate",
+      "kind": "class",
+      "side": "backend",
+      "layer": "schema",
+      "description": "Rejects missing titles, past dates and unknown priority levels.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/features/feature_tasks/schemas/task_schema.py",
+        "symbol": "TaskCreate",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          17
+        ]
+      },
+      "owner": "feature_tasks",
+      "component_reason": "Rejects missing titles, past dates and unknown priority levels.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.InMemoryTaskStore",
+      "name": "InMemoryTaskStore",
+      "kind": "class",
+      "side": "backend",
+      "layer": "provider",
+      "description": "Creates local task records with sequential IDs under a lock.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/providers/tasks/in_memory_task_store.py",
+        "symbol": "InMemoryTaskStore",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          17
+        ]
+      },
+      "owner": "feature_tasks",
+      "component_reason": "Creates local task records with sequential IDs under a lock.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.list_calendar_events",
+      "name": "list_calendar_events",
+      "kind": "function",
+      "side": "backend",
+      "layer": "tool",
+      "description": "Exposes an MCP read-only calendar operation.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/features/feature_calendar/tools/list_calendar_events.py",
+        "symbol": "list_calendar_events",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "feature_calendar",
+      "component_reason": "Exposes an MCP read-only calendar operation.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "delegate-0",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.service_list_calendar_events",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.service_list_calendar_events",
+      "name": "service_list_calendar_events",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Rejects unsupported list limits then reads the calendar provider.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/features/feature_calendar/services/service_list_calendar_events.py",
+        "symbol": "service_list_calendar_events",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          8
+        ]
+      },
+      "owner": "feature_calendar",
+      "component_reason": "Rejects unsupported list limits then reads the calendar provider.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [
+        {
+          "id": "delegate-0",
+          "title": "Invoke dependency",
+          "description": "Delegates to this component.",
+          "calls": {
+            "component": "be.FakeCalendarProvider",
+            "type": "call",
+            "label": "calls"
+          }
+        }
+      ],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    },
+    {
+      "id": "be.FakeCalendarProvider",
+      "name": "FakeCalendarProvider",
+      "kind": "class",
+      "side": "backend",
+      "layer": "provider",
+      "description": "Returns upcoming demonstration meetings relative to today.",
+      "flows": [
+        "task",
+        "calendar"
+      ],
+      "source": {
+        "file": "app/providers/calendar/fake_calendar_provider.py",
+        "symbol": "FakeCalendarProvider",
+        "revision": "step-02-define-task-and-calendar-tools",
+        "lines": [
+          1,
+          13
+        ]
+      },
+      "owner": "feature_calendar",
+      "component_reason": "Returns upcoming demonstration meetings relative to today.",
+      "status": "observed",
+      "step_change": "added",
+      "inputs": [],
+      "validations": [],
+      "operations": [],
+      "outputs": [],
+      "attributes": {
+        "step_note": "Added in Step 2."
+      }
+    }
+  ],
+  "dependencies": [],
+  "unresolved": []
+}
