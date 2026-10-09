@@ -51,7 +51,14 @@
       "started_at": "2026-10-09T18:00:18.198Z",
       "finished_at": "2026-10-09T18:22:04.374Z",
       "updated_by": "api-key:for-chatgpt-test-2"
+    },
+    "inkp": {
+      "status": "in_progress",
+      "summary": "User approved Stage 3; converting six STEP-N.crd snapshots to six-tab Simulator .inkp, committing only on main. Stage 4 will not begin.",
+      "started_at": "2026-10-09T18:23:39.374Z",
+      "finished_at": null,
+      "updated_by": "api-key:for-chatgpt-test-2"
     }
   },
-  "updated_at": "2026-10-09T18:22:16.387Z"
+  "updated_at": "2026-10-09T18:23:39.374Z"
 }
