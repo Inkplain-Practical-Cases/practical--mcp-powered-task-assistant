@@ -5,7 +5,7 @@
   "generated_at": "2026-10-09T18:06:00Z",
   "source": {
     "repo": "github.com/Inkplain-Practical-Cases/practical--mcp-powered-task-assistant",
-    "revision": "step-06-harden-and-verify",
+    "revision": "main",
     "roots": {
       "backend": "app"
     },
@@ -14,11 +14,11 @@
     ]
   },
   "step": {
-    "no": 6,
+    "no": "final",
     "of": 6,
-    "title": "Harden and verify",
-    "branch": "step-06-harden-and-verify",
-    "previous": "STEP-5.crd",
+    "title": "Completed MCP Task Assistant",
+    "branch": "main",
+    "previous": "STEP-6.crd",
     "removed": []
   },
   "flows": [
@@ -73,7 +73,7 @@
       "source": {
         "file": "app/main.py",
         "symbol": "main",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           11
@@ -115,7 +115,7 @@
       "source": {
         "file": "app/server.py",
         "symbol": "server",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           9
@@ -177,7 +177,7 @@
       "source": {
         "file": "app/features/feature_status/tools/server_status.py",
         "symbol": "server_status",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -219,7 +219,7 @@
       "source": {
         "file": "app/features/feature_status/services/service_read_status.py",
         "symbol": "service_read_status",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           6
@@ -251,7 +251,7 @@
       "source": {
         "file": "app/core/dependencies.py",
         "symbol": "get_task_store",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           16
@@ -294,7 +294,7 @@
       "source": {
         "file": "app/core/dependencies.py",
         "symbol": "get_calendar_provider",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           16
@@ -337,7 +337,7 @@
       "source": {
         "file": "app/features/feature_tasks/tools/create_task.py",
         "symbol": "create_task",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           9
@@ -380,7 +380,7 @@
       "source": {
         "file": "app/features/feature_tasks/services/service_create_task.py",
         "symbol": "service_create_task",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           9
@@ -433,7 +433,7 @@
       "source": {
         "file": "app/features/feature_tasks/schemas/task_schema.py",
         "symbol": "TaskCreate",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           17
@@ -465,7 +465,7 @@
       "source": {
         "file": "app/providers/tasks/in_memory_task_store.py",
         "symbol": "InMemoryTaskStore",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           17
@@ -497,7 +497,7 @@
       "source": {
         "file": "app/features/feature_calendar/tools/list_calendar_events.py",
         "symbol": "list_calendar_events",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -540,7 +540,7 @@
       "source": {
         "file": "app/features/feature_calendar/services/service_list_calendar_events.py",
         "symbol": "service_list_calendar_events",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           8
@@ -583,7 +583,7 @@
       "source": {
         "file": "app/providers/calendar/fake_calendar_provider.py",
         "symbol": "FakeCalendarProvider",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           13
@@ -614,7 +614,7 @@
       "source": {
         "file": "app/client/mcp_gateway.py",
         "symbol": "MCPGateway",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           22
@@ -645,7 +645,7 @@
       "source": {
         "file": "app/features/feature_discovery/services/service_discover_tools.py",
         "symbol": "service_discover_tools",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           9
@@ -687,7 +687,7 @@
       "source": {
         "file": "app/client/discover_cli.py",
         "symbol": "main",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           16
@@ -729,7 +729,7 @@
       "source": {
         "file": "app/features/feature_invocation/services/service_validate_arguments.py",
         "symbol": "service_validate_arguments",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           15
@@ -760,7 +760,7 @@
       "source": {
         "file": "app/features/feature_invocation/services/service_parse_tool_result.py",
         "symbol": "service_parse_tool_result",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           19
@@ -791,7 +791,7 @@
       "source": {
         "file": "app/features/feature_invocation/services/service_invoke_tool.py",
         "symbol": "service_invoke_tool",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           13
@@ -853,7 +853,7 @@
       "source": {
         "file": "app/client/invoke_cli.py",
         "symbol": "main",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           19
@@ -905,7 +905,7 @@
       "source": {
         "file": "app/features/feature_assistant/schemas/action_plan.py",
         "symbol": "Action",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           14
@@ -936,7 +936,7 @@
       "source": {
         "file": "app/features/feature_assistant/schemas/action_plan.py",
         "symbol": "ActionPlan",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           14
@@ -967,7 +967,7 @@
       "source": {
         "file": "app/features/feature_assistant/services/service_interpret_request.py",
         "symbol": "service_interpret_request",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           30
@@ -1009,7 +1009,7 @@
       "source": {
         "file": "app/features/feature_assistant/services/service_execute_action_plan.py",
         "symbol": "service_execute_action_plan",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           13
@@ -1018,7 +1018,7 @@
       "owner": "feature_assistant",
       "component_reason": "Executes approved actions sequentially through safe MCP invocation.",
       "status": "observed",
-      "step_change": "changed",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -1071,7 +1071,7 @@
       "source": {
         "file": "app/features/feature_assistant/handlers/handle_assistant_request.py",
         "symbol": "handle_assistant_request",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           10
@@ -1080,7 +1080,7 @@
       "owner": "feature_assistant",
       "component_reason": "Coordinates plan construction and execution.",
       "status": "observed",
-      "step_change": "changed",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [
@@ -1123,7 +1123,7 @@
       "source": {
         "file": "app/client/assistant_cli.py",
         "symbol": "main",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           15
@@ -1175,7 +1175,7 @@
       "source": {
         "file": "app/core/config.py",
         "symbol": "get_tool_timeout_seconds",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           10
@@ -1184,7 +1184,7 @@
       "owner": "core",
       "component_reason": "Checks MCP tool call timeout is positive and bounded.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [],
@@ -1206,7 +1206,7 @@
       "source": {
         "file": "app/core/observability.py",
         "symbol": "log_tool_event",
-        "revision": "step-06-harden-and-verify",
+        "revision": "main",
         "lines": [
           1,
           10
@@ -1215,7 +1215,7 @@
       "owner": "core",
       "component_reason": "Logs tool names and event codes without personal task content.",
       "status": "observed",
-      "step_change": "added",
+      "step_change": "unchanged",
       "inputs": [],
       "validations": [],
       "operations": [],
