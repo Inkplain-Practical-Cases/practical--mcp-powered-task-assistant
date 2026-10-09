@@ -1,0 +1,44 @@
+name: Validate all seven learning branches
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    name: pytest on ${{ matrix.branch }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        branch:
+          - step-01-create-basic-mcp-server
+          - step-02-define-task-and-calendar-tools
+          - step-03-build-mcp-client-and-discover-tools
+          - step-04-invoke-tools-and-validate-results
+          - step-05-orchestrate-natural-language-requests
+          - step-06-harden-and-verify
+          - main
+    steps:
+      - name: Check out teaching branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install branch dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+      - name: Test actual MCP client/server and business code
+        env:
+          PYTHONUNBUFFERED: "1"
+          MCP_TOOL_TIMEOUT_SECONDS: "8"
+        run: python -m pytest -q
