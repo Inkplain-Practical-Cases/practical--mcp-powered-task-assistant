@@ -77,7 +77,7 @@
     },
     "content": {
       "status": "done",
-      "summary": "Gate 3 approved and Stage 4 completed. Created 8 categories and 45 items: Overview 18 (Project overview, Project structure and 16 substantive code-backed What is topics), six STEP categories each with System design, Components and 4M, Line-by-line implementation and Run & check (24), Conclusion 3. Verified 16 What is items have zero inkp_visualization/crd_tree blocks, each with a substantive source_code_content example. For each of six STEP-N, System design descriptions are immediately followed by github_file matching exact component file and branch; added/changed Components descriptions and 4M follow same immediate link policy; corresponding STEP-N inkp_visualization, CRD tree and implementation code blocks are present. Simulator get_inkp_summary: 6 ordered tabs, 113 documents, zero missing links.",
+      "summary": "Source-backed persistence audit completed: InMemoryTaskStore uses an in-process list and explicitly states task state does not survive restart; event logging has no durable sink. No source-derived STEP-N.erd or Database lesson required.",
       "outputs": {
         "portal_url": "/practical-case/mcp-powered-task-assistant",
         "categories": 8,
@@ -98,12 +98,18 @@
           "STEP-5",
           "STEP-6"
         ],
-        "inkp_missing_links": 0
+        "inkp_missing_links": 0,
+        "erd_audit_complete": true,
+        "erd_applicable_steps": [],
+        "erd_not_applicable": true,
+        "erd_lessons_created": 0,
+        "erd_item_title": "Database (Entity) Relations",
+        "erd_audit_note": "InMemoryTaskStore uses an in-process list and explicitly states task state does not survive restart; event logging has no durable sink."
       },
       "started_at": "2026-10-09T18:46:42.896Z",
       "finished_at": "2026-10-09T18:46:42.896Z",
       "updated_by": "api-key:for-chatgpt-test-2"
     }
   },
-  "updated_at": "2026-10-09T18:46:42.896Z"
+  "updated_at": "2026-10-13T15:14:45.763Z"
 }
