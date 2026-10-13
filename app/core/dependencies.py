@@ -1,15 +1,14 @@
-# Cached local data adapters shared by MCP tools in one server process.
-# In step 2 no external task or calendar accounts are required.
+"""Shared, cached adapters for the real local MCP tool server."""
 from functools import lru_cache
-from app.providers.tasks.in_memory_task_store import InMemoryTaskStore
+from app.providers.tasks.sqlite_task_store import SQLiteTaskStore
 from app.providers.calendar.fake_calendar_provider import FakeCalendarProvider
 
 @lru_cache
-def get_task_store() -> InMemoryTaskStore:
-    # Share task IDs across calls in the same long-running stdio session.
-    return InMemoryTaskStore()
+def get_task_store() -> SQLiteTaskStore:
+    """Return the same durable adapter throughout this MCP server process."""
+    return SQLiteTaskStore()
 
 @lru_cache
 def get_calendar_provider() -> FakeCalendarProvider:
-    # Calendar entries are deterministic, generated relative to today's date.
+    """Keep calendar events deterministic for the educational fixture."""
     return FakeCalendarProvider()

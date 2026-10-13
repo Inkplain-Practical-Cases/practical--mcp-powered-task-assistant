@@ -19,3 +19,6 @@ test_end_to_end checks one two-action request over a real session; hardening tes
 Stage 3 will create Simulator STEP-6; do not create an .inkp in Stage 2.
 ## Next
 Main is the final version. Stage 3 can begin only when the user asks.
+
+## Database (Entity) Relations
+The STEP-6 MCP task store uses SQLite instead of the earlier process-memory adapter. The `tasks` table has a foreign-key child `task_events` for creation history. `INKPLAIN_TASK_DB` controls the persistent file location. See `STEP-6.erd` and `STEP-6-ERD` in the Simulator.

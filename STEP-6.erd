@@ -1,0 +1,70 @@
+{
+  "erd_version": 1,
+  "name": "mcp-powered-task-assistant",
+  "step": 6,
+  "engine": "sqlite",
+  "generated_from": [
+    "app/providers/tasks/sqlite_task_store.py",
+    "app/core/dependencies.py"
+  ],
+  "entities": [
+    {
+      "name": "tasks",
+      "kind": "table",
+      "step_change": "added",
+      "source": "app/providers/tasks/sqlite_task_store.py",
+      "description": "Durable validated MCP tasks, one row per create_task invocation.",
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "key": "PK"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "priority",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        }
+      ]
+    },
+    {
+      "name": "task_events",
+      "kind": "table",
+      "step_change": "added",
+      "source": "app/providers/tasks/sqlite_task_store.py",
+      "description": "Immutable creation events belonging to a specific task.",
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "key": "PK"
+        },
+        {
+          "name": "task_id",
+          "type": "INTEGER",
+          "references": "tasks.id"
+        },
+        {
+          "name": "event_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "occurred_at",
+          "type": "TEXT"
+        }
+      ]
+    }
+  ],
+  "relations": []
+}
